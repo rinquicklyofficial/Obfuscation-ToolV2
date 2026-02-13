@@ -65,3 +65,6 @@ Make sure you have Python 3.8 or higher installed.
 
 ```bash
 pip install rich
+```bash
+chmod +x setup.sh
+./setup.sh
