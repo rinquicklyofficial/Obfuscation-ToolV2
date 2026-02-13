@@ -64,3 +64,5 @@ Make sure you have Python 3.8 or higher installed.
 ```bash
 pip install rich
 
+--- # TEST
+[![Test Obfuscator Tool](https://github.com/rinquicklyofficial/Obfuscation-ToolV2/actions/workflows/TestTool.yml/badge.svg)](https://github.com/rinquicklyofficial/Obfuscation-ToolV2/actions/workflows/TestTool.yml)
