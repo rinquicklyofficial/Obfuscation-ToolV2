@@ -21,6 +21,8 @@
   </p>
 </div>
 
+
+[![Test Obfuscator Tool](https://github.com/rinquicklyofficial/Obfuscation-ToolV2/actions/workflows/TestTool.yml/badge.svg)](https://github.com/rinquicklyofficial/Obfuscation-ToolV2/actions/workflows/TestTool.yml)
 ---
 
 ## 📖 Overview
