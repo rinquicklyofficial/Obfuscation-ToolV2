@@ -33,13 +33,13 @@ Obfuscation-ToolV2/
 │── requirements.txt
 ```
 Clone Repository
-Copy code
+# Copy code
 ```Bash
 git clone https://github.com/rinquicklyofficial/Obfuscation-ToolV2.git
 cd Obfuscation-ToolV2```
 Usage
 Run the obfuscator:
-Copy code
+# Copy code
 ```Bash
 python Obfuscator_ToolV2.py```
 Follow the interactive prompts:
@@ -49,7 +49,7 @@ Enter INPUT file name: your_script.py
 Enter OUTPUT file name: protected.py
 Enter obfuscation level (1,2,3,4): 4
 Run the resulting obfuscated file:
-Copy code
+# Copy code
 ```Bash
 python Obfuscator_ToolV2.py```
 Obfuscation Levels
@@ -66,7 +66,7 @@ XOR Encryption → Zlib → LZMA → Gzip → Base64
 Higher levels increase obfuscation strength and file size.
 Example
 Original script:
-Copy code
+# Copy code
 ```Python
 print("Hello World")```
 Obfuscated script (example output):
