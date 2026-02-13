@@ -9,7 +9,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         python-version: [3.9, 3.10, 3.11, 3.12]
@@ -24,23 +23,21 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install rich
+        run: pip install rich
 
-      - name: Syntax check Obfuscator
+      - name: Syntax check
         run: python -m py_compile Obfuscator_ToolV2.py
 
       - name: Create dummy script
         run: echo 'print("Hello from test script")' > test_script.py
 
-      - name: Run Obfuscator on all levels
+      - name: Test obfuscation levels
         run: |
           for level in 1 2 3 4; do
-            OUTPUT_FILE="obfuscated_test_level${level}.py"
+            OUT_FILE="obfuscated_test_level${level}.py"
             echo "Testing obfuscation level $level"
-            python Obfuscator_ToolV2.py test_script.py $OUTPUT_FILE $level
-            python $OUTPUT_FILE
+            python Obfuscator_ToolV2.py test_script.py $OUT_FILE $level
+            python $OUT_FILE
           done
 
       - name: Clean up
