@@ -31,5 +31,3 @@ Obfuscation-ToolV2/
 │── Obfuscator_ToolV2.py
 │── README.md
 │── requirements.txt
-
-
