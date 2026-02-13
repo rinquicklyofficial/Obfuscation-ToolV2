@@ -32,23 +32,16 @@ jobs:
         run: python -m py_compile Obfuscator_ToolV2.py
 
       - name: Create dummy script
-        run: |
-          echo 'print("Hello from test script")' > test_script.py
+        run: echo 'print("Hello from test script")' > test_script.py
 
       - name: Run Obfuscator on all levels
         run: |
-          for level in 1 2 3 4
-          do
+          for level in 1 2 3 4; do
             OUTPUT_FILE="obfuscated_test_level${level}.py"
             echo "Testing obfuscation level $level"
-            python Obfuscator_ToolV2.py << EOF
-test_script.py
-$OUTPUT_FILE
-$level
-EOF
+            python Obfuscator_ToolV2.py test_script.py $OUTPUT_FILE $level
             python $OUTPUT_FILE
           done
 
       - name: Clean up
-        run: |
-          rm -f test_script.py obfuscated_test_level*.py
+        run: rm -f test_script.py obfuscated_test_level*.py
