@@ -1,0 +1,49 @@
+name: Test Obfuscator Tool
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: [3.9, 3.10, 3.11, 3.12]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install rich
+
+      - name: Syntax check Obfuscator
+        run: |
+          python -m py_compile Obfuscator_ToolV2.py
+
+      - name: Create dummy script for testing
+        run: |
+          echo 'print("Hello from test script")' > test_script.py
+
+      - name: Test Obfuscation
+        run: |
+          python Obfuscator_ToolV2.py << EOF
+test_script.py
+obfuscated_test.py
+1
+EOF
+
+      - name: Run obfuscated script
+        run: |
+          python obfuscated_test.py
